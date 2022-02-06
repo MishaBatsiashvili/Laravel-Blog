@@ -1,0 +1,42 @@
+/* ./resources/sass/app.scss */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.ck-editor__editable{
+    height: 600px;
+}
+
+body{
+    background-color: #FFF6EF;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.font-header, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif;
+}
+
+body, .font-sans, .font-par, p {
+    font-family: 'Work Sans', sans-serif;
+}
+
+
+.blog-post-body{
+    h3{
+        font-size: 1.87rem;
+        margin-top: 1rem;
+    }
+
+    p{
+        color: #505050;
+        font-weight: 500;
+        line-height: 1.7;
+    }
+
+    img{
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        display: block;
+        width: 100%;
+    }
+}
