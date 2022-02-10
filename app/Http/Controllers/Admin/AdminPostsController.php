@@ -68,7 +68,7 @@ class AdminPostsController extends Controller
     }
 
     public function edit(Post $post){
-        if($post->user_id !== auth()->user()?->id){
+        if(intval($post->user_id) !== auth()->user()?->id){
             return redirect('/');
         }
 
