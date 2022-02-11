@@ -21,8 +21,8 @@
         <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen">
+    <body class="font-sans antialiased flex flex-col justify-between min-h-screen">
+        <div>
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -47,30 +47,32 @@
         </div>
 
 
-
+        @include('layouts.footer')
 
 
         <script>
             window.addEventListener('load', () => {
                 const editorDOM = document.querySelector('#editor');
-                ClassicEditor
-                    .create( document.querySelector('#editor'), {
-                        ckfinder: {
-                            // Use named route for CKFinder connector entry point
-                            uploadUrl: '{{ route('ckfinder_connector') }}?command=QuickUpload&type=Files&responseType=json'
-                            // uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-                        },
-                        toolbar: [ 'ckfinder', 'imageUpload', '|', 'heading', '|', 'bold', 'italic', '|', 'undo', 'redo' ]
-                    })
-                    .then( editor => {
-                        editor.model.document.on( 'change:data', () => {
-                            console.log(editor.getData());
-                            editorDOM.innerHTML = editor.getData();
-                        });
-                    } )
-                    .catch( error => {
-                        console.error( error );
-                    } );
+                if(editorDOM){
+                    ClassicEditor
+                        .create( document.querySelector('#editor'), {
+                            ckfinder: {
+                                // Use named route for CKFinder connector entry point
+                                uploadUrl: '{{ route('ckfinder_connector') }}?command=QuickUpload&type=Files&responseType=json'
+                                // uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+                            },
+                            toolbar: [ 'ckfinder', 'imageUpload', '|', 'heading', '|', 'bold', 'italic', '|', 'undo', 'redo' ]
+                        })
+                        .then( editor => {
+                            editor.model.document.on( 'change:data', () => {
+                                console.log(editor.getData());
+                                editorDOM.innerHTML = editor.getData();
+                            });
+                        } )
+                        .catch( error => {
+                            console.error( error );
+                        } );
+                }
             })
         </script>
     </body>

@@ -20,7 +20,7 @@
         <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased flex flex-col justify-between min-h-screen">
         <div>
             @include('layouts.navigation')
 
@@ -38,8 +38,7 @@
                 {{ $slot }}
             </main>
 
-
-            @include('layouts.footer')
         </div>
+        @include('layouts.footer')
     </body>
 </html>
