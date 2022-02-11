@@ -61,11 +61,4 @@ class PostController extends Controller
             'isBookmarked' => $isBookmarked,
         ]);
     }
-
-    public function getThrottleKey(){
-        if(auth()->user()){
-            return auth()->user()->username . '|'.request()->ip();
-        }
-        return null;
-    }
 }
