@@ -26,6 +26,7 @@ use Illuminate\Validation\ValidationException;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/mail/post/test', [PostController::class, 'mailtest']);
 
 Route::middleware('auth')->group(function(){
     Route::prefix('/bookmarks')->name('bookmarks.')->group(function(){

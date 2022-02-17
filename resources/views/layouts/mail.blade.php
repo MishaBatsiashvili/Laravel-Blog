@@ -1,7 +1,10 @@
 <html>
+
+    @if(isset($head) && $head)
     <head>
         {{ $head }}
     </head>
+    @endif
 
     <body class="font-sans antialiased">
 

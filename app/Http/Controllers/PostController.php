@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    public function mailtest(){
+        $post = Post::first();
+        $name = $post->author->name;
+        return view('mail.newpost', compact('post', 'name'));
+    }
+
     public function index(){
         $categories = Category::all();
         $posts = Post::latest()
