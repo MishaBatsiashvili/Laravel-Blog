@@ -23,18 +23,10 @@
                     display: block;
                 }
 
-                .image-centered{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
+                .image{
+                    width: 600px;
+                    height: 400px;
                     object-fit: cover;
-                }
-
-                .image-wrp{
-                    position: relative;
-                    padding-top: 50%;
                 }
 
                 .title{
@@ -76,13 +68,11 @@
             <tr>
                 <td>
                     <div>
-                        <div class="image-wrp">
-                            <img
-                                class="d-block image-centered"
-                                src="{{ asset('/storage/'.$post->thumbnail) }}"
-                                alt="{{ $post->title }}"
-                            >
-                        </div>
+                        <img
+                            class="d-block image"
+                            src="{{ asset('/storage/'.$post->thumbnail) }}"
+                            alt="{{ $post->title }}"
+                        >
                     </div>
                     <div class="author">By {{ ucwords($name) }}</div>
                 </td>
